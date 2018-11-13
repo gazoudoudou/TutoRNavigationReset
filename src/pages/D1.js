@@ -3,15 +3,17 @@ import { View, TouchableOpacity, Text } from 'react-native';
 import { StackActions, NavigationActions } from 'react-navigation';
 import { styles as defaultStyles } from '../styles';
 
-export default class B1 extends PureComponent {
-  _navigateToC0 = () => this.props.navigation.navigate('C0');
-
-  _resetToB1 = () => {
+export default class D1 extends PureComponent {
+  _resetToC2 = () => {
     const action = StackActions.reset({
       index: 0,
+      key: null,
       actions: [
         NavigationActions.navigate({
-          routeName: 'B1',
+          routeName: 'A1',
+          action: NavigationActions.navigate({
+            routeName: 'C2',
+          }),
         }),
       ],
     });
@@ -21,11 +23,8 @@ export default class B1 extends PureComponent {
   render() {
     return (
       <View style={defaultStyles.container}>
-        <TouchableOpacity style={defaultStyles.touchable} onPress={this._navigateToC0}>
-          <Text>Navigate to C0</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={[defaultStyles.touchable, defaultStyles.subTouchable]} onPress={this._resetToB1}>
-          <Text>Reset to B1</Text>
+        <TouchableOpacity style={defaultStyles.touchable} onPress={this._resetToC2}>
+          <Text>Reset to C2</Text>
         </TouchableOpacity>
       </View>
     );
